@@ -11,6 +11,12 @@ export default () => {
 
       <Menu.Menu position="right">
         <Link route="/">
+          <a className="item">Campaign</a>
+        </Link>
+        <Link route="/">
+          <a className="item">Register to vote</a>
+        </Link>
+        <Link route="/">
           <a className="item">Fundraising</a>
         </Link>
 

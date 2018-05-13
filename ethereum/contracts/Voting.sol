@@ -119,6 +119,23 @@ contract Voting {
     return (voteStatus.length);
   }
 
+  //------------------------------------------------------------------------------------
+  // getCandidateDetail :
+  //------------------------------------------------------------------------------------
+  function getCandidateDetails(bytes32 _candidateName) public view returns(bytes32,uint8,bytes32,bytes32){
+    for(uint i = 0; i < candidates.length; i++) {
+      //emit evalidCandidate(candidates[i].name, _candidateName, i);
+      if (candidates[i].name == _candidateName) {
+        return (
+          candidates[i].name,
+          candidates[i].age,
+          candidates[i].slogan,
+          candidates[i].party
+          );
+      }
+    }
+  }
+
 
 
 

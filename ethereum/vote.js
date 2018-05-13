@@ -1,6 +1,6 @@
 import web3 from "./web3";
 
-const address = "0x8bF547C3629B81C1572850Ba86C91bc1b6B753c8";
+const address = "0xfd7734a9648D719df0B50A8a22869ace7fCA841b";
 
 const abi = [
   {
@@ -89,6 +89,20 @@ const abi = [
     type: "function"
   },
   {
+    constant: true,
+    inputs: [{ name: "_candidateName", type: "bytes32" }],
+    name: "getCandidateDetails",
+    outputs: [
+      { name: "", type: "bytes32" },
+      { name: "", type: "uint8" },
+      { name: "", type: "bytes32" },
+      { name: "", type: "bytes32" }
+    ],
+    payable: false,
+    stateMutability: "view",
+    type: "function"
+  },
+  {
     constant: false,
     inputs: [{ name: "_candidateName", type: "bytes32" }],
     name: "voteForCandidate",
@@ -137,4 +151,5 @@ const abi = [
     type: "event"
   }
 ];
+
 export default new web3.eth.Contract(abi, address);

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import web3 from "../ethereum/web3";
 import vote from "../ethereum/vote";
 import Layout from "./components/Layout";
+import { Link, Router } from "../routes";
 import {
   Card,
   Button,
@@ -89,7 +90,11 @@ class VoteNextIndex extends Component {
             />
           </Cell>
           <Cell>{index}</Cell>
-          <Cell>{web3.utils.hexToAscii(candidate.name)}</Cell>
+          <Cell>
+            <Link route={`/campaigns/${candidate.name}`}>
+              <a>{web3.utils.hexToAscii(candidate.name)}</a>
+            </Link>
+          </Cell>
           <Cell>{candidate.age}</Cell>
           <Cell>{web3.utils.hexToAscii(candidate.slogan)}</Cell>
           <Cell>{web3.utils.hexToAscii(candidate.party)}</Cell>
