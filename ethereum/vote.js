@@ -1,6 +1,6 @@
 import web3 from "./web3";
 
-const address = "0xfd7734a9648D719df0B50A8a22869ace7fCA841b";
+const address = "0x9A372FC7E22F7A7E2528beB5C26c2315252D9975";
 
 const abi = [
   {
@@ -96,7 +96,8 @@ const abi = [
       { name: "", type: "bytes32" },
       { name: "", type: "uint8" },
       { name: "", type: "bytes32" },
-      { name: "", type: "bytes32" }
+      { name: "", type: "bytes32" },
+      { name: "", type: "uint256" }
     ],
     payable: false,
     stateMutability: "view",

@@ -11,17 +11,23 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chart.js": "^2.7.2",
     "fs-extra": "^5.0.0",
     "ganache-cli": "^6.0.3",
     "mocha": "^4.1.0",
-    "next": "^4.1.4",
+    "next": "^4.2.3",
+    "next-images": "^0.10.2",
     "next-routes": "^1.2.0",
+    "npm": "^6.0.1",
     "react": "^16.2.0",
+    "react-chartjs-2": "^2.7.2",
     "react-dom": "^16.2.0",
     "semantic-ui-css": "^2.2.12",
     "semantic-ui-react": "^0.77.1",
     "solc": "^0.4.19",
+    "to": "^0.2.9",
     "truffle-hdwallet-provider": "0.0.3",
+    "update": "^0.7.4",
     "web3": "1.0.0-beta.26"
   }
 }

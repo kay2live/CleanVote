@@ -4,11 +4,13 @@ import { Button, Label, Form, Input, Table } from "semantic-ui-react";
 import web3 from "../../ethereum/web3";
 import vote from "../../ethereum/vote";
 import { Link, Router } from "../../routes";
+import Barchart from "../components/Barchart";
 
 class VoteNextShowStatus extends Component {
   //-----------------------------------------------------------
   // getInitialProps
   //-----------------------------------------------------------
+
   static async getInitialProps() {
     const owner = await vote.methods.owner().call();
 
@@ -33,7 +35,7 @@ class VoteNextShowStatus extends Component {
       const { Row, Cell } = Table;
       return (
         <Row>
-          <Cell>{index}</Cell>
+          <Cell>{index + 1}</Cell>
           <Cell>{web3.utils.hexToAscii(vote.name)}</Cell>
           <Cell>{vote.voteCount}</Cell>
         </Row>
@@ -55,7 +57,7 @@ class VoteNextShowStatus extends Component {
         <Form>
           <Form.Group>
             <Label as="a" color="orange" image>
-              <img src="../asset/images/avatar/small/small0.jpg" />
+              <img src="/static/images/small0.jpg" />
               Owner
               <Label.Detail>{this.props.owner}</Label.Detail>
             </Label>
@@ -74,6 +76,10 @@ class VoteNextShowStatus extends Component {
               <Body>{this.renderRows()}</Body>
             </Table>
           </Form.Group>
+
+          <Link route="/">
+            <Button floated="right" content="Home" icon="home" primary />
+          </Link>
         </Form>
       </Layout>
     );

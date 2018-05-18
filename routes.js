@@ -3,6 +3,7 @@ const routes = require("next-routes")();
 routes
   .add("/campaigns/newcandidate", "/campaigns/newcandidate")
   .add("/campaigns/showstatus", "/campaigns/showstatus")
+  .add("/components/Barchart", "/components/Barchart")
   .add("/campaigns/:address", "/campaigns/showcandidinfo");
 
 module.exports = routes;
