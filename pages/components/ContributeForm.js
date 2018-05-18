@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { Form, Input, Message, Button } from "semantic-ui-react";
 
+//-------------------------------------------------------------
+// Contribution ContributeForm
+//-------------------------------------------------------------
 class ContributeForm extends Component {
   render() {
     return (

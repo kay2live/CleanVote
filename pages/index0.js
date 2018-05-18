@@ -17,11 +17,6 @@ import {
 } from "semantic-ui-react";
 
 //import icon_owner from "./assets/images/avatar/small/small0.jpg";
-let candidateImages = [
-  "/static/images/matthew.png",
-  "/static/images/daniel.jpg",
-  "/static/images/elliot.jpg"
-];
 
 class VoteNextIndex extends Component {
   state = {
@@ -32,7 +27,7 @@ class VoteNextIndex extends Component {
   };
 
   //-----------------------------------------------------------
-  // getInitialProps - first
+  // getInitialProps - First
   //-----------------------------------------------------------
   static async getInitialProps() {
     const owner = await vote.methods.owner().call();
@@ -50,6 +45,21 @@ class VoteNextIndex extends Component {
     );
 
     return { owner, candidates };
+  }
+
+  //-----------------------------------------------------------
+  // renderCandidates - should be called with {this.renderCardCandidates()}
+  //-----------------------------------------------------------
+  renderCardCandidates() {
+    const items = this.props.candidates.map(name => {
+      return {
+        header: name,
+        description: name,
+        fluid: false
+      };
+    });
+
+    return <Card.Group items={items} />;
   }
 
   //-----------------------------------------------------------
@@ -72,40 +82,25 @@ class VoteNextIndex extends Component {
   renderRows() {
     return this.props.candidates.map((candidate, index) => {
       const { Row, Cell } = Table;
-      const imageidx = index + 1;
-      const candidimage =
-        "/static/images/large/candid" + imageidx.toString() + ".png";
-
       return (
-        <Card centered>
-          <Image src={candidimage} />
-          <Card.Content>
-            <Card.Header>
-              <Link route={`/campaigns/${candidate.name}`}>
-                <a>{web3.utils.hexToAscii(candidate.name)}</a>
-              </Link>
-            </Card.Header>
-            <Card.Meta>
-              <h2>
-                <span className="date">{index + 1}</span>
-              </h2>
-            </Card.Meta>
-            <Card.Description>
-              {web3.utils.hexToAscii(candidate.slogan)}
-              <p />
-              {web3.utils.hexToAscii(candidate.party)}
-            </Card.Description>
-          </Card.Content>
-          <Card.Content extra>
-            Age : {candidate.age}
-            <p />
+        <Row>
+          <Cell>
             <Form.Radio
               value={candidate.name}
               onChange={this.handleChange}
               checked={this.state.value === candidate.name}
             />
-          </Card.Content>
-        </Card>
+          </Cell>
+          <Cell>{index}</Cell>
+          <Cell>
+            <Link route={`/campaigns/${candidate.name}`}>
+              <a>{web3.utils.hexToAscii(candidate.name)}</a>
+            </Link>
+          </Cell>
+          <Cell>{candidate.age}</Cell>
+          <Cell>{web3.utils.hexToAscii(candidate.slogan)}</Cell>
+          <Cell>{web3.utils.hexToAscii(candidate.party)}</Cell>
+        </Row>
       );
     });
   }
@@ -140,7 +135,7 @@ class VoteNextIndex extends Component {
 
     return (
       <Layout>
-        <h1 align="center">Make our Atlantis Better!!</h1>
+        <h1>Make our Atlantis Better!!</h1>
 
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
           <Form.Group>
@@ -160,7 +155,19 @@ class VoteNextIndex extends Component {
 
           <p />
           <Form.Group inline>
-            <Card.Group itemsPerRow={3}>{this.renderRows()}</Card.Group>
+            <Table>
+              <Header>
+                <Row>
+                  <HeaderCell>Choose One</HeaderCell>
+                  <HeaderCell>ID</HeaderCell>
+                  <HeaderCell>Candidate Name</HeaderCell>
+                  <HeaderCell>Age</HeaderCell>
+                  <HeaderCell>Slogan</HeaderCell>
+                  <HeaderCell>Party</HeaderCell>
+                </Row>
+              </Header>
+              <Body>{this.renderRows()}</Body>
+            </Table>
           </Form.Group>
           <Message error header="Opps!" content={this.state.errorMessage} />
           <Button

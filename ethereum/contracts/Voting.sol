@@ -2,7 +2,9 @@ pragma solidity ^0.4.18;
 
 contract Voting {
 
-  //members
+  //-----------------------------------------------------------------------
+  // Candidate Members
+  //-----------------------------------------------------------------------
   struct Candidate {
       bytes32 name;
       uint8 age;
@@ -122,7 +124,7 @@ contract Voting {
   //------------------------------------------------------------------------------------
   // getCandidateDetail :
   //------------------------------------------------------------------------------------
-  function getCandidateDetails(bytes32 _candidateName) public view returns(bytes32,uint8,bytes32,bytes32){
+  function getCandidateDetails(bytes32 _candidateName) public view returns(bytes32,uint8,bytes32,bytes32,uint){
     for(uint i = 0; i < candidates.length; i++) {
       //emit evalidCandidate(candidates[i].name, _candidateName, i);
       if (candidates[i].name == _candidateName) {
@@ -130,7 +132,8 @@ contract Voting {
           candidates[i].name,
           candidates[i].age,
           candidates[i].slogan,
-          candidates[i].party
+          candidates[i].party,
+          i
           );
       }
     }
