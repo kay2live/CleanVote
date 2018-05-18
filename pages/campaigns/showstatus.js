@@ -4,7 +4,6 @@ import { Button, Label, Form, Input, Table } from "semantic-ui-react";
 import web3 from "../../ethereum/web3";
 import vote from "../../ethereum/vote";
 import { Link, Router } from "../../routes";
-import Barchart from "../components/Barchart";
 
 class VoteNextShowStatus extends Component {
   //-----------------------------------------------------------
