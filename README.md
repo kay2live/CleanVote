@@ -1,5 +1,5 @@
 # Clear Vote
-이더리움의 솔리디티언어를 이용하여 투표할 수 있는 스마트 컨트랙 및 DApp을 만들었습니다. 
+Blockchain Learning Circle 스터디그룹의 결과물로, 이더리움에서 동작하는 Voting App을 만들었습니다. Atlantis의 새로운 대통령 후보를 선출하는 DApp(탈중앙화된 앱)으로, 스마트 컨트랙을 작성하여 Rinkeby 테스트 네트워크에 배포하였습니다. 
 
 ## Architecture
 Clear Vote 앱의 Architecture는 다음과 같습니다. Voting 기능을 수행하는 스마트 컨트랙을 작성하여 이더리움의 Rinkeby 네트워크에 배포를 했고, Web3.js를 이용하여 Ethereum과 통신합니다. 
