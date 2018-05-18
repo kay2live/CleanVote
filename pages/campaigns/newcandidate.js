@@ -5,6 +5,9 @@ import web3 from "../../ethereum/web3";
 import vote from "../../ethereum/vote";
 import { Router } from "../../routes";
 
+//---------------------------------------------------------------
+// VoteNextNewCandidate
+//---------------------------------------------------------------
 class VoteNextNewCandidate extends Component {
   state = {
     value: "",

@@ -2,7 +2,9 @@ pragma solidity ^0.4.18;
 
 contract Voting {
 
-  //members
+  //-----------------------------------------------------------------------
+  // Candidate Members
+  //-----------------------------------------------------------------------
   struct Candidate {
       bytes32 name;
       uint8 age;

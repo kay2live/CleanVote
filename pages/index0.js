@@ -27,7 +27,7 @@ class VoteNextIndex extends Component {
   };
 
   //-----------------------------------------------------------
-  // getInitialProps
+  // getInitialProps - First
   //-----------------------------------------------------------
   static async getInitialProps() {
     const owner = await vote.methods.owner().call();

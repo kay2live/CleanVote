@@ -14,6 +14,9 @@ import vote from "../../ethereum/vote";
 import { Link, Router } from "../../routes";
 import ContributeForm from "../components/ContributeForm";
 
+//---------------------------------------------------------------
+// VoteNextShowInfo
+//---------------------------------------------------------------
 class VoteNextShowInfo extends Component {
   static async getInitialProps(props) {
     const candidname = props.query.address;

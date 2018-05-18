@@ -8,7 +8,7 @@ import Barchart from "../components/Barchart";
 
 class VoteNextShowStatus extends Component {
   //-----------------------------------------------------------
-  // getInitialProps
+  // getInitialProps - First
   //-----------------------------------------------------------
 
   static async getInitialProps() {
